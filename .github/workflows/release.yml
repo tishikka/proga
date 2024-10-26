@@ -40,15 +40,15 @@ jobs:
       - run: cmake --build .
       - run: cmake --build . --target test
       - run: cmake --build . --target package
-      - name: update release
+      - name: upd release
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.create_release.outputs.upload_url}}
-          asset_path: ./helloworld-0.0.${{ github.run_number }}-Linux.deb
-          asset_name: helloworld-0.0.${{ github.run_number }}-Linux.deb
+          asset_path: ./ip_adresses-0.0.${{ github.run_number }}-Linux.deb
+          asset_name: ip_adresses-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
 
   build-macos:
@@ -64,13 +64,13 @@ jobs:
       - run: cmake --build .
       - run: cmake --build . --target test
       - run: cmake --build . --target package
-      - name: update release
+      - name: Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.create_release.outputs.upload_url}}
-          asset_path: ./helloworld-0.0.${{ github.run_number }}-Darwin.zip
-          asset_name: helloworld-0.0.${{ github.run_number }}-Darwin.zip
+          asset_path: ./ip_adresses-0.0.${{ github.run_number }}-Darwin.zip
+          asset_name: ip_adresses-0.0.${{ github.run_number }}-Darwin.zip
           asset_content_type: application/zip
